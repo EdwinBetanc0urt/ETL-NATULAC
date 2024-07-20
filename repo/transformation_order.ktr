@@ -428,7 +428,7 @@
     <created_user>-</created_user>
     <created_date>2024/07/03 12:45:52.034</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2024/07/19 20:26:11.400</modified_date>
+    <modified_date>2024/07/19 21:39:12.027</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -595,12 +595,32 @@
       <to>Select value Order Error</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Get variables Email 2 2</from>
+      <to>Error Mail in Proccess Order 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge join (Cabecera and Items)</from>
+      <to>Get variables Email 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get variables Email 2 2 2</from>
+      <to>Error Mail in Proccess Order 2 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Build JS 2</from>
+      <to>Get variables Email 2 2 2</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>Build JS 2</name>
     <type>ScriptValueMod</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -886,7 +906,7 @@ var concatFileCabezera = filename.replace(conatFIleName, orderId);
       <validation_name>SendMailError</validation_name>
       <max_length/>
       <min_length/>
-      <null_allowed>Y</null_allowed>
+      <null_allowed>N</null_allowed>
       <only_null_allowed>N</only_null_allowed>
       <only_numeric_allowed>N</only_numeric_allowed>
       <data_type>String</data_type>
@@ -920,8 +940,8 @@ var concatFileCabezera = filename.replace(conatFIleName, orderId);
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1152</xloc>
-      <yloc>320</yloc>
+      <xloc>1136</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1303,7 +1323,7 @@ var concatFileCabezera = filename.replace(conatFIleName, orderId);
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1152</xloc>
+      <xloc>1136</xloc>
       <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1515,7 +1535,7 @@ var concatFileCabezera = filename.replace(conatFIleName, orderId);
     <encoding>UTF-8</encoding>
     <addtoresult>Y</addtoresult>
     <file>
-      <name/>
+      <name>${SET_SOURCE_DIRECTORY}/orden</name>
       <extention>json</extention>
       <append>N</append>
       <split>N</split>
@@ -1772,7 +1792,7 @@ var concatFileCabezera = filename.replace(conatFIleName, orderId);
     <name>Merge join (Cabecera and Items)</name>
     <type>MergeJoin</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -3155,6 +3175,362 @@ var sendOrder = JSON.stringify(json);</jsScript_script>
     <GUI>
       <xloc>1360</xloc>
       <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Error Mail in Proccess Order 2 2</name>
+    <type>Mail</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <server>EMAIL_SERVER</server>
+    <port>EMAIL_PORT</port>
+    <destination>EMAIL_DESTINATION</destination>
+    <destinationCc/>
+    <destinationBCc/>
+    <replyToAddresses/>
+    <replyto>EMAIL_SENDER</replyto>
+    <replytoname>EMAIL_TITLE</replytoname>
+    <subject>document_no</subject>
+    <include_date>Y</include_date>
+    <include_subfolders>N</include_subfolders>
+    <zipFilenameDynamic>N</zipFilenameDynamic>
+    <isFilenameDynamic>N</isFilenameDynamic>
+    <attachContentFromField>N</attachContentFromField>
+    <attachContentField>File Items</attachContentField>
+    <attachContentFileNameField>File Items</attachContentFileNameField>
+    <dynamicFieldname/>
+    <dynamicWildcard/>
+    <dynamicZipFilename/>
+    <sourcefilefoldername/>
+    <sourcewildcard/>
+    <contact_person/>
+    <contact_phone/>
+    <comment>FileNameCabecera</comment>
+    <include_files>N</include_files>
+    <zip_files>N</zip_files>
+    <zip_name/>
+    <zip_limit_size>0</zip_limit_size>
+    <use_auth>Y</use_auth>
+    <use_secure_auth>Y</use_secure_auth>
+    <auth_user>EMAIL_ATORIZATIONS</auth_user>
+    <auth_password>Encrypted 2be98ea852beebebb9b389d43e9bd9dfe</auth_password>
+    <only_comment>Y</only_comment>
+    <use_HTML>Y</use_HTML>
+    <use_Priority>Y</use_Priority>
+    <encoding>UTF-8</encoding>
+    <priority>normal</priority>
+    <importance>normal</importance>
+    <sensitivity>normal</sensitivity>
+    <secureconnectiontype>TLS</secureconnectiontype>
+    <embeddedimages>
+      </embeddedimages>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1073</xloc>
+      <yloc>617</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get variables Email 2 2</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>EMAIL_DESTINATION</name>
+        <variable>${EMAIL_DESTINATION_ADDRESS}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_SENDER</name>
+        <variable>${EMAIL_SENDER_ADDRESS}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_SERVER</name>
+        <variable>${EMAIL_SMTP_SERVER}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_PORT</name>
+        <variable>${EMAIL_SMTP_PORT}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_ATORIZATIONS</name>
+        <variable>${EMAIL_SENDER_ADDRESS}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_PASSWORD</name>
+        <variable>${EMAIL_PASSWORD}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_TITLE</name>
+        <variable>Error al Procesar Orden</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>849</xloc>
+      <yloc>617</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Error Mail in Proccess Order 2 2 2</name>
+    <type>Mail</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <server>EMAIL_SERVER</server>
+    <port>EMAIL_PORT</port>
+    <destination>EMAIL_DESTINATION</destination>
+    <destinationCc/>
+    <destinationBCc/>
+    <replyToAddresses/>
+    <replyto>EMAIL_SENDER</replyto>
+    <replytoname>EMAIL_TITLE</replytoname>
+    <subject>document_no</subject>
+    <include_date>Y</include_date>
+    <include_subfolders>N</include_subfolders>
+    <zipFilenameDynamic>N</zipFilenameDynamic>
+    <isFilenameDynamic>N</isFilenameDynamic>
+    <attachContentFromField>N</attachContentFromField>
+    <attachContentField>File Items</attachContentField>
+    <attachContentFileNameField>File Items</attachContentFileNameField>
+    <dynamicFieldname/>
+    <dynamicWildcard/>
+    <dynamicZipFilename/>
+    <sourcefilefoldername/>
+    <sourcewildcard/>
+    <contact_person/>
+    <contact_phone/>
+    <comment>JsonOutput</comment>
+    <include_files>N</include_files>
+    <zip_files>N</zip_files>
+    <zip_name/>
+    <zip_limit_size>0</zip_limit_size>
+    <use_auth>Y</use_auth>
+    <use_secure_auth>Y</use_secure_auth>
+    <auth_user>EMAIL_ATORIZATIONS</auth_user>
+    <auth_password>Encrypted 2be98ea852beebebb9b389d43e9bd9dfe</auth_password>
+    <only_comment>Y</only_comment>
+    <use_HTML>Y</use_HTML>
+    <use_Priority>Y</use_Priority>
+    <encoding>UTF-8</encoding>
+    <priority>normal</priority>
+    <importance>normal</importance>
+    <sensitivity>normal</sensitivity>
+    <secureconnectiontype>TLS</secureconnectiontype>
+    <embeddedimages>
+      </embeddedimages>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1360</xloc>
+      <yloc>528</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Get variables Email 2 2 2</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>EMAIL_DESTINATION</name>
+        <variable>${EMAIL_DESTINATION_ADDRESS}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_SENDER</name>
+        <variable>${EMAIL_SENDER_ADDRESS}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_SERVER</name>
+        <variable>${EMAIL_SMTP_SERVER}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_PORT</name>
+        <variable>${EMAIL_SMTP_PORT}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_ATORIZATIONS</name>
+        <variable>${EMAIL_SENDER_ADDRESS}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_PASSWORD</name>
+        <variable>${EMAIL_PASSWORD}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>EMAIL_TITLE</name>
+        <variable>Error al Procesar Orden</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1136</xloc>
+      <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
