@@ -456,6 +456,11 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Modified JavaScript value 2</from>
+      <to>Filter rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>JSON Result</from>
       <to>Modified JavaScript value</to>
       <enabled>Y</enabled>
@@ -1216,8 +1221,8 @@
     </GUI>
   </step>
   <step>
-    <name>Abort</name>
-    <type>Abort</type>
+    <name>Modified JavaScript value 2</name>
+    <type>ScriptValueMod</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
