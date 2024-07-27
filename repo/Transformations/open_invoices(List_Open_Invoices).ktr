@@ -457,12 +457,22 @@
     </hop>
     <hop>
       <from>JSON Result</from>
-      <to>Abort</to>
+      <to>Modified JavaScript value</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Abort</from>
+      <from>Modified JavaScript value</from>
+      <to>Filter rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
       <to>JSON Open Invoice</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Abort</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -512,7 +522,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
+      <xloc>96</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -752,8 +762,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
-      <yloc>384</yloc>
+      <xloc>752</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -849,8 +859,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>384</yloc>
+      <xloc>368</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -905,7 +915,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
+      <xloc>240</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -975,7 +985,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
+      <xloc>864</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1200,7 +1210,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
+      <xloc>976</xloc>
       <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1209,7 +1219,7 @@
     <name>Abort</name>
     <type>Abort</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1217,9 +1227,9 @@
       <schema_name/>
     </partitioning>
     <row_threshold>0</row_threshold>
-    <message>Empty Data</message>
-    <always_log_rows>N</always_log_rows>
-    <abort_option>ABORT_WITH_ERROR</abort_option>
+    <message>Empty Data (factpendientes.csv)</message>
+    <always_log_rows>Y</always_log_rows>
+    <abort_option>ABORT</abort_option>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1229,8 +1239,97 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>528</xloc>
-      <yloc>384</yloc>
+      <xloc>640</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Modified JavaScript value</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+const count = Number(record_count);</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>count</name>
+        <rename>count</rename>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>JSON Open Invoice</send_true_to>
+    <send_false_to>Abort</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>count</leftvalue>
+        <function>&gt;</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Number</type>
+          <text>0.0</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask>####0.0#########;-####0.0#########</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
