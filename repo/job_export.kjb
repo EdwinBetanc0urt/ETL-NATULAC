@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2024/02/14 07:57:56.220</created_date>
   <modified_user>-</modified_user>
-   <modified_date>2024/06/18 16:21:56.855</modified_date>
+  <modified_date>2024/06/18 16:21:56.855</modified_date>
   <parameters>
     <parameter>
       <name>EMAIL_DESTINATION_ADDRESS</name>
@@ -46,11 +46,6 @@
       <description/>
     </parameter>
     <parameter>
-      <name>PORT</name>
-      <default_value>@PORT@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
       <name>PLAY_INPUT_PATH</name>
       <default_value>@PLAY_INPUT_PATH@</default_value>
       <description/>
@@ -58,6 +53,11 @@
     <parameter>
       <name>PLAY_OUTPUT_PATH</name>
       <default_value>@PLAY_OUTPUT_PATH@</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>PORT</name>
+      <default_value>@PORT@</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -1361,7 +1361,7 @@
       <secureconnectiontype>TLS</secureconnectiontype>
       <replyToAddresses/>
       <filetypes>
-        <filetype>GENERAL</filetype>
+        <filetype>ERRORLINE</filetype>
       </filetypes>
       <embeddedimages>
       </embeddedimages>

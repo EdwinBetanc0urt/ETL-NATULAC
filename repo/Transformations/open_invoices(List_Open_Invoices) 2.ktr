@@ -529,7 +529,7 @@
     <fields>
       <field>
         <name>FULL_PATH</name>
-        <variable>http://0.0.0.0:5561/v1/invoices/open</variable>
+        <variable>${HOST_URL}/v1/invoices/open</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -541,7 +541,7 @@
       </field>
       <field>
         <name>ATORIZATIONS</name>
-        <variable>Bearer eyJhbGciOiJIUzI1NiJ9.eyJBRF9DbGllbnRfSUQiOjEwMDAwMDAsIkFEX09yZ19JRCI6MCwiQURfUm9sZV9JRCI6MCwiQURfVXNlcl9JRCI6MTAwLCJNX1dhcmVob3VzZV9JRCI6MCwiQURfTGFuZ3VhZ2UiOiJlbl9VUyIsImlhdCI6MTcyMTk0MzAzOH0.0PmESlKv8Kt-HlHWR4zNRvGjhqW1Ug_eTs9Ju8qm8f8</variable>
+        <variable>${TOKEN}</variable>
         <type>String</type>
         <format/>
         <currency/>
