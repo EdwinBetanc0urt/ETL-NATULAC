@@ -8,7 +8,6 @@
   <created_user>-</created_user>
   <created_date>2024/02/14 07:57:56.220</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2024/06/18 16:21:56.855</modified_date>
   <parameters>
     <parameter>
       <name>EMAIL_DESTINATION_ADDRESS</name>
@@ -46,11 +45,6 @@
       <description/>
     </parameter>
     <parameter>
-      <name>PORT</name>
-      <default_value>@PORT@</default_value>
-      <description/>
-    </parameter>
-    <parameter>
       <name>PLAY_INPUT_PATH</name>
       <default_value>@PLAY_INPUT_PATH@</default_value>
       <description/>
@@ -58,6 +52,11 @@
     <parameter>
       <name>PLAY_OUTPUT_PATH</name>
       <default_value>@PLAY_OUTPUT_PATH@</default_value>
+      <description/>
+    </parameter>
+    <parameter>
+      <name>PORT</name>
+      <default_value>@PORT@</default_value>
       <description/>
     </parameter>
     <parameter>
@@ -404,8 +403,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>592</xloc>
-      <yloc>352</yloc>
+      <xloc>576</xloc>
+      <yloc>576</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -426,8 +425,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>704</xloc>
-      <yloc>352</yloc>
+      <xloc>672</xloc>
+      <yloc>576</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -506,8 +505,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>336</xloc>
-      <yloc>480</yloc>
+      <xloc>128</xloc>
+      <yloc>576</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -678,7 +677,7 @@
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>open_invoices(List_Open_Invoices)</transname>
+      <transname>open_invoices(List_Open_Invoices) 2</transname>
       <directory>${Internal.Entry.Current.Directory}/Transformations</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -1066,8 +1065,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>592</xloc>
-      <yloc>480</yloc>
+      <xloc>368</xloc>
+      <yloc>576</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1106,8 +1105,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>912</xloc>
-      <yloc>464</yloc>
+      <xloc>1232</xloc>
+      <yloc>592</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1186,8 +1185,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1184</xloc>
-      <yloc>464</yloc>
+      <xloc>1472</xloc>
+      <yloc>592</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1278,8 +1277,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>672</xloc>
-      <yloc>608</yloc>
+      <xloc>912</xloc>
+      <yloc>592</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1323,8 +1322,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>864</xloc>
-      <yloc>608</yloc>
+      <xloc>1024</xloc>
+      <yloc>592</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -1361,7 +1360,7 @@
       <secureconnectiontype>TLS</secureconnectiontype>
       <replyToAddresses/>
       <filetypes>
-        <filetype>GENERAL</filetype>
+        <filetype>ERROR</filetype>
       </filetypes>
       <embeddedimages>
       </embeddedimages>
@@ -1370,6 +1369,18 @@
       <nr>0</nr>
       <xloc>720</xloc>
       <yloc>208</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Success 2</name>
+      <description/>
+      <type>SUCCESS</type>
+      <attributes/>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>720</xloc>
+      <yloc>304</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
@@ -1596,8 +1607,8 @@
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
       <from>Transformation List_Banks</from>
@@ -1780,12 +1791,12 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Set variables</from>
-      <to>Send Mail with error</to>
+      <from>Send Mail with error</from>
+      <to>Success 2</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>N</evaluation>
+      <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
   </hops>
