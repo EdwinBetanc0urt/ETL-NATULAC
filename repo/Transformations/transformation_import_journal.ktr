@@ -428,8 +428,8 @@
     <created_user>-</created_user>
     <created_date>2024/08/10 23:38:46.484</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2024/08/10 23:49:02.304</modified_date>
-    <key_for_session_key/>
+    <modified_date>2024/08/11 00:52:51.031</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -508,59 +508,8 @@
     </hop>
   </order>
   <step>
-    <name>Table input</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>ADEMPIERE</connection>
-    <sql>SELECT
-  codcia
-, anoctb
-, lapctb
-, tipcmp
-, numcmp
-, feccmp
-, ctactb
-, numdoc
-, fecdoc
-, monctb
-, destra
-, debcre
-, estaid
-, userid
-, fecsis
-, canctb
-FROM "public".nmm027
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <cached_row_meta_active>N</cached_row_meta_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
+    <name>Get variables</name>
+    <type>GetVariable</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -571,70 +520,29 @@ FROM "public".nmm027
     </partitioning>
     <fields>
       <field>
-        <name>codcia</name>
-        <rename/>
+        <name>FULL_PATH</name>
+        <variable>${JOURNAL_HOST_URL}/v1/journals</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
       </field>
       <field>
-        <name>anoctb</name>
-        <rename/>
+        <name>ATORIZATIONS</name>
+        <variable>${TOKEN}</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
       </field>
-      <field>
-        <name>lapctb</name>
-        <rename/>
-      </field>
-      <field>
-        <name>tipcmp</name>
-        <rename/>
-      </field>
-      <field>
-        <name>numcmp</name>
-        <rename/>
-      </field>
-      <field>
-        <name>feccmp</name>
-        <rename/>
-      </field>
-      <field>
-        <name>ctactb</name>
-        <rename/>
-      </field>
-      <field>
-        <name>numdoc</name>
-        <rename/>
-      </field>
-      <field>
-        <name>fecdoc</name>
-        <rename/>
-      </field>
-      <field>
-        <name>monctb</name>
-        <rename/>
-      </field>
-      <field>
-        <name>destra</name>
-        <rename/>
-      </field>
-      <field>
-        <name>debcre</name>
-        <rename/>
-      </field>
-      <field>
-        <name>estaid</name>
-        <rename/>
-      </field>
-      <field>
-        <name>userid</name>
-        <rename/>
-      </field>
-      <field>
-        <name>fecsis</name>
-        <rename/>
-      </field>
-      <field>
-        <name>canctb</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -645,7 +553,7 @@ FROM "public".nmm027
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
+      <xloc>640</xloc>
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
@@ -761,57 +669,6 @@ FROM "public".nmm027
     </GUI>
   </step>
   <step>
-    <name>Get variables</name>
-    <type>GetVariable</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>FULL_PATH</name>
-        <variable>${HOST_URL}/v1/import-journal</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>ATORIZATIONS</name>
-        <variable>${TOKEN}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>656</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>REST client</name>
     <type>Rest</type>
     <description/>
@@ -863,6 +720,134 @@ FROM "public".nmm027
     </remotesteps>
     <GUI>
       <xloc>800</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>codcia</name>
+      </field>
+      <field>
+        <name>anoctb</name>
+      </field>
+      <field>
+        <name>lapctb</name>
+      </field>
+      <field>
+        <name>tipcmp</name>
+      </field>
+      <field>
+        <name>numcmp</name>
+      </field>
+      <field>
+        <name>feccmp</name>
+      </field>
+      <field>
+        <name>ctactb</name>
+      </field>
+      <field>
+        <name>numdoc</name>
+      </field>
+      <field>
+        <name>fecdoc</name>
+      </field>
+      <field>
+        <name>monctb</name>
+      </field>
+      <field>
+        <name>destra</name>
+      </field>
+      <field>
+        <name>debcre</name>
+      </field>
+      <field>
+        <name>estaid</name>
+      </field>
+      <field>
+        <name>userid</name>
+      </field>
+      <field>
+        <name>fecsis</name>
+      </field>
+      <field>
+        <name>canctb</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>384</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table input</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>ADEMPIERE</connection>
+    <sql>SELECT
+  codcia
+, anoctb
+, lapctb
+, tipcmp
+, numcmp
+, feccmp
+, ctactb
+, numdoc
+, fecdoc
+, monctb
+, destra
+, debcre
+, estaid
+, userid
+, fecsis
+, canctb
+FROM "public".nmm027
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
