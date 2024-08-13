@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2024/01/31 14:32:43.116</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2024/08/12 17:18:06.075</modified_date>
+  <modified_date>2024/08/13 15:35:17.206</modified_date>
   <parameters>
     <parameter>
       <name>EMAIL_DESTINATION_ADDRESS</name>
@@ -76,6 +76,57 @@
       <description>TOKEN</description>
     </parameter>
   </parameters>
+  <connection>
+    <name>ADEMPIERE</name>
+    <server>${JOURNAL_SOURCE_DB_HOST}</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>${JOURNAL_SOURCE_DB_NAME}</database>
+    <port>${JOURNAL_SOURCE_DB_PORT}</port>
+    <username>${JOURNAL_SOURCE_DB_USERNAME}</username>
+    <password>${JOURNAL_SOURCE_DB_PASSWORD}</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>${JOURNAL_SOURCE_DB_PORT}</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
   <slaveservers>
     </slaveservers>
   <job-log-table>
@@ -374,8 +425,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>464</xloc>
-      <yloc>208</yloc>
+      <xloc>368</xloc>
+      <yloc>192</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -394,8 +445,8 @@
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
+      <logfile>${Internal.Entry.Current.Directory}/Untitled</logfile>
+      <logext>txt</logext>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Rowlevel</loglevel>
@@ -414,8 +465,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>640</xloc>
-      <yloc>208</yloc>
+      <xloc>560</xloc>
+      <yloc>192</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -436,8 +487,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>192</xloc>
-      <yloc>208</yloc>
+      <xloc>96</xloc>
+      <yloc>192</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -448,8 +499,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>976</xloc>
-      <yloc>208</yloc>
+      <xloc>1072</xloc>
+      <yloc>192</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -493,8 +544,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>832</xloc>
-      <yloc>208</yloc>
+      <xloc>896</xloc>
+      <yloc>192</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -531,82 +582,34 @@
       <secureconnectiontype>TLS</secureconnectiontype>
       <replyToAddresses/>
       <filetypes>
-        <filetype>ERRORLINE</filetype>
+        <filetype>GENERAL</filetype>
       </filetypes>
       <embeddedimages>
       </embeddedimages>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>640</xloc>
-      <yloc>336</yloc>
+      <xloc>560</xloc>
+      <yloc>304</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Send Mail with error BD</name>
+      <name>Table exists</name>
       <description/>
-      <type>MAIL</type>
+      <type>TABLE_EXISTS</type>
       <attributes/>
-      <server>${EMAIL_SMTP_SERVER}</server>
-      <port>${EMAIL_SMTP_PORT}</port>
-      <destination>${EMAIL_DESTINATION_ADDRESS}</destination>
-      <destinationCc/>
-      <destinationBCc/>
-      <replyto>${EMAIL_SENDER_ADDRESS}</replyto>
-      <replytoname>${EMAIL_SUBJECT}</replytoname>
-      <subject>ETL Execution Error</subject>
-      <include_date>Y</include_date>
-      <contact_person/>
-      <contact_phone/>
-      <comment/>
-      <include_files>Y</include_files>
-      <zip_files>N</zip_files>
-      <zip_name/>
-      <use_auth>Y</use_auth>
-      <use_secure_auth>Y</use_secure_auth>
-      <auth_user>${EMAIL_SENDER_ADDRESS}</auth_user>
-      <auth_password>${EMAIL_PASSWORD}</auth_password>
-      <only_comment>N</only_comment>
-      <use_HTML>Y</use_HTML>
-      <use_Priority>N</use_Priority>
-      <encoding>UTF-8</encoding>
-      <priority>normal</priority>
-      <importance>normal</importance>
-      <sensitivity>normal</sensitivity>
-      <secureconnectiontype>TLS</secureconnectiontype>
-      <replyToAddresses/>
-      <filetypes>
-        <filetype>ERRORLINE</filetype>
-      </filetypes>
-      <embeddedimages>
-      </embeddedimages>
+      <tablename>NMM027</tablename>
+      <schemaname>public</schemaname>
+      <connection>ADEMPIERE</connection>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1424</xloc>
-      <yloc>144</yloc>
+      <xloc>208</xloc>
+      <yloc>192</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
   <hops>
-    <hop>
-      <from>Set variables</from>
-      <to>Transformation Journal Import</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Transformation Journal Import</from>
-      <to>Send Mail with Succes</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
     <hop>
       <from>Send Mail with Succes</from>
       <to>Success</to>
@@ -618,12 +621,48 @@
     </hop>
     <hop>
       <from>Start</from>
-      <to>Set variables</to>
+      <to>Table exists</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Table exists</from>
+      <to>Set variables</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Set variables</from>
+      <to>Transformation Journal Import</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Set variables</from>
+      <to>Transformation Journal Import</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Transformation Journal Import</from>
+      <to>Send Mail with Succes</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
     </hop>
     <hop>
       <from>Transformation Journal Import</from>
