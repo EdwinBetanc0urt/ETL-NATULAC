@@ -21,12 +21,19 @@ sed -i "s|@PLAY_OUTPUT_PATH@|$PLAY_OUTPUT_PATH|g" /opt/pentaho/repo/Job/*.kjb
 sed -i "s|@PLAY_INPUT_PATH@|$PLAY_INPUT_PATH|g" /opt/pentaho/repo/Job/*.kjb
 
 # Journal Backend
-sed -i "s|@JOURNAL_SOURCE_DB_HOST@|$JOURNAL_SOURCE_DB_HOST|g" /opt/pentaho/repo/Job/*.kjb
-sed -i "s|@JOURNAL_SOURCE_DB_PORT@|$JOURNAL_SOURCE_DB_PORT|g" /opt/pentaho/repo/Job/*.kjb
-sed -i "s|@JOURNAL_SOURCE_DB_NAME@|$JOURNAL_SOURCE_DB_NAME|g" /opt/pentaho/repo/Job/*.kjb
-sed -i "s|@JOURNAL_SOURCE_DB_USERNAME@|$JOURNAL_SOURCE_DB_USERNAME|g" /opt/pentaho/repo/Job/*.kjb
-sed -i "s|@JOURNAL_SOURCE_DB_PASSWORD@|$JOURNAL_SOURCE_DB_PASSWORD|g" /opt/pentaho/repo/Job/*.kjb
-sed -i "s|@JOURNAL_HOST_URL@|$JOURNAL_HOST_URL|g" /opt/pentaho/repo/Job/*.kjb
+find /opt/pentaho/repo -type f -name "*.kjb" -exec sed -i "s|@JOURNAL_SOURCE_DB_HOST@|$JOURNAL_SOURCE_DB_HOST|g" {} \;
+find /opt/pentaho/repo -type f -name "*.kjb" -exec sed -i "s|@JOURNAL_SOURCE_DB_PORT@|$JOURNAL_SOURCE_DB_PORT|g" {} \;
+find /opt/pentaho/repo -type f -name "*.kjb" -exec sed -i "s|@JOURNAL_SOURCE_DB_NAME@|$JOURNAL_SOURCE_DB_NAME|g" {} \;
+find /opt/pentaho/repo -type f -name "*.kjb" -exec sed -i "s|@JOURNAL_SOURCE_DB_USERNAME@|$JOURNAL_SOURCE_DB_USERNAME|g" {} \;
+find /opt/pentaho/repo -type f -name "*.kjb" -exec sed -i "s|@JOURNAL_SOURCE_DB_PASSWORD@|$JOURNAL_SOURCE_DB_PASSWORD|g" {} \;
+find /opt/pentaho/repo -type f -name "*.kjb" -exec sed -i "s|@JOURNAL_HOST_URL@|$JOURNAL_HOST_URL|g" {} \;
+
+# sed -i "s|@JOURNAL_SOURCE_DB_HOST@|$JOURNAL_SOURCE_DB_HOST|g" /opt/pentaho/repo/**.kjb
+# sed -i "s|@JOURNAL_SOURCE_DB_PORT@|$JOURNAL_SOURCE_DB_PORT|g" /opt/pentaho/repo/**.kjb
+# sed -i "s|@JOURNAL_SOURCE_DB_NAME@|$JOURNAL_SOURCE_DB_NAME|g" /opt/pentaho/repo/*.kjb
+# sed -i "s|@JOURNAL_SOURCE_DB_USERNAME@|$JOURNAL_SOURCE_DB_USERNAME|g" /opt/pentaho/repo/*.kjb
+# sed -i "s|@JOURNAL_SOURCE_DB_PASSWORD@|$JOURNAL_SOURCE_DB_PASSWORD|g" /opt/pentaho/repo/*.kjb
+# sed -i "s|@JOURNAL_HOST_URL@|$JOURNAL_HOST_URL|g" /opt/pentaho/repo/Job/*.kjb
 
 
 #sh /opt/pentaho/setup_crontab.sh
