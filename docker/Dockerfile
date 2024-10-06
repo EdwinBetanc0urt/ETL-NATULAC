@@ -12,7 +12,7 @@ WORKDIR /opt/pentaho
 
 ENV \
 	CARTE_PASSWORD=password \
-	# Email config
+	# EMail notification setup
 	EMAIL_SMTP_SERVER=smtp.hostname \
 	EMAIL_SMTP_PORT=587 \
 	EMAIL_SENDER_ADDRESS=sender@e-mail.com \
@@ -21,11 +21,11 @@ ENV \
 	EMAIL_DESTINATION_ADDRESS=destination@e-mail.com \
 	# ADempiere Backend connection
 	TOKEN="token-fill" \
-	# Play Backend
+	# ADempiere Play Backend
 	PLAY_HOST_URL="http://localhost:5561" \
 	PLAY_OUTPUT_PATH="/tmp/play/masters/" \
 	PLAY_INPUT_PATH="/tmp/play/orders/" \
-	# Journal Backend
+	# ADempiere Journal Backend
 	JOURNAL_SOURCE_DB_HOST=localhost \
 	JOURNAL_SOURCE_DB_PORT=5432 \
 	JOURNAL_SOURCE_DB_NAME=ETL \
