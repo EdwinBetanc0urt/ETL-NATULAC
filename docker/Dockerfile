@@ -31,7 +31,9 @@ ENV \
 	JOURNAL_SOURCE_DB_NAME=ETL \
 	JOURNAL_SOURCE_DB_USERNAME=adempiere \
 	JOURNAL_SOURCE_DB_PASSWORD=adempiere \
-	JOURNAL_HOST_URL="http://localhost:5562"
+	JOURNAL_HOST_URL="http://localhost:5562" \
+	JOURNAL_CURRENCY_ISO_CODE="VES" \
+	JOURNAL_ORGANIZATION_CODE="0"
 
 # add config files
 COPY repo /opt/pentaho/repo/
